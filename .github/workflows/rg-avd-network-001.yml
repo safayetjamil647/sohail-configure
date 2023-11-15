@@ -31,33 +31,29 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       
-      - name: 'Initialize Submodules'
-        run: |
-          git submodule update --init --recursive
-      
       # Runs a single command using the runners shell
       - name: 'Terraform init'
         id: init
         run: |
-          cd terraform/rg-avd-network-001/
+          cd /terraform/rg-avd-network-001/
           terraform init
       
       - name: 'Terraform refresh'
         id: refresh
         run: |
-          cd terraform/rg-avd-network-001/
+          cd /terraform/rg-avd-network-001/
           terraform refresh
 
       - name: 'Terraform plan'
         id: plan
         run: |
-          cd terraform/rg-avd-network-001/
+          cd /terraform/rg-avd-network-001/
           terraform plan
           
       - name: 'Terraform apply'
         id: apply
         run: |
-          cd terraform/rg-avd-network-001/
+          cd /terraform/rg-avd-network-001/
           terraform apply -auto-approve
     
 
