@@ -4,7 +4,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     paths:
-      - 'terraform/rg-loganalytics-001/*.tf'
+      - 'terraform/rg-loganalytics1/*.tf'
     branches:
         - main
 
@@ -35,17 +35,17 @@ jobs:
       - name: 'Terraform init'
         id: init
         run: |
-          cd terraform/rg-loganalytics-001
+          cd terraform/rg-loganalytics1
           terraform init
 
       - name: 'Terraform plan'
         id: plan
         run: |
-          cd Subscriptions/Sub-MVP-Sponsorship/rg-loganalytics-001
+          cd Subscriptions/Sub-MVP-Sponsorship/rg-loganalytics1
           terraform plan
           
       - name: 'Terraform apply'
         id: apply
         run: |
-          cd terraform/rg-loganalytics-001
+          cd terraform/rg-loganalytics1
           terraform apply -auto-approve
